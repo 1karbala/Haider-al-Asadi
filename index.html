@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الموقع الرسمي للمرشح المهندس حيدر الأسدي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <style>
+        /* Unified Color Variables */
+        :root {
+            --primary-blue: #0A235D;
+            --secondary-gold: #FFC107;
+            --dark-blue-bg: #031435;
+            --light-bg: #F0F4F8;
+            --white-color: #FFFFFF;
+            --dark-text: #343a40;
+            --light-gray-text: #ced4da;
+            --success-green: #28a745;
+            --error-red: #dc3545;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Cairo', sans-serif;
+            background: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.8;
+            overflow-x: hidden;
+            direction: rtl;
+            text-align: right;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation Menu */
+        .nav-menu-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary-blue);
+            color: var(--white-color);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse-button 2s infinite;
+        }
+        .nav-menu-btn:hover {
+            transform: scale(1.1);
+            background-color: var(--secondary-gold);
+            color: var(--primary-blue);
+        }
+
+        .nav-menu {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            background: var(--white-color);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 99;
+            padding: 10px;
+            transform: scale(0);
+            transform-origin: top right;
+            transition: transform 0.3s ease-in-out;
+        }
+        .nav-menu.active {
+            transform: scale(1);
+        }
+        .nav-menu a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-menu a:hover {
+            background-color: var(--primary-blue);
+            color: var(--white-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            color: var(--white-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(3, 20, 53, 0.75);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInSlideUp 1.2s ease-out forwards 0.5s;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            font-weight: 900;
+        }
+
+        .hero p {
+            font-size: 1.8rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        @keyframes fadeInSlideUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 50px;
+        }
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            font-weight: 900;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title h2::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 5px;
+            background: var(--secondary-gold);
+            margin: 15px auto 0;
+            border-radius: 3px;
+            animation: expandLineWidth 1.5s ease-out forwards;
+        }
+        @keyframes expandLineWidth {
+            from { width: 0; }
+            to { width: 100px; }
+        }
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            max-width: 800px;
+            margin: 20px auto 0;
+        }
+
+        /* Candidate Bio Section */
+        .candidate-bio {
+            padding: 5rem 0;
+            background-color: var(--white-color);
+        }
+        .bio-flex-container {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .candidate-image-col {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+        .candidate-photo-wrapper {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .candidate-photo {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 10px solid var(--primary-blue);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.25);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .candidate-photo:hover {
+            transform: scale(1.05) rotate(-3deg);
+            border-color: var(--secondary-gold);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.35);
+        }
+        .candidate-text-col {
+            flex: 2;
+            min-width: 400px;
+            text-align: justify;
+        }
+        .candidate-text-col h3 {
+            font-size: 2.2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        .candidate-text-col p {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            line-height: 2;
+        }
+        .emotional-text {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--primary-blue);
+            border-right: 5px solid var(--secondary-gold);
+            padding-right: 15px;
+            margin: 2rem 0;
+            animation: fadeIn 2s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Journey/Services Section */
+        .journey-section, .list-section, .promises-section {
+            padding: 5rem 0;
+            background-color: var(--light-bg);
+            position: relative;
+        }
+        
+        .journey-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+        
+        .journey-item {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .journey-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .journey-icon {
+            font-size: 3rem;
+            color: var(--secondary-gold);
+            min-width: 80px;
+        }
+        
+        .journey-content {
+            flex: 1;
+        }
+        
+        .journey-content h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .journey-content p {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .journey-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .promises-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .promise-card {
+            background: var(--white-color);
+            border-radius: 15px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s ease;
+            border-right: 5px solid var(--primary-blue);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .promise-card.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .promise-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            border-color: var(--secondary-gold);
+        }
+        .promise-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 1rem;
+        }
+        .promise-card h3 i {
+            margin-left: 15px;
+            color: var(--secondary-gold);
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+        .promise-card:hover h3 i {
+            transform: rotate(10deg);
+        }
+        .promise-card p {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            margin-top: 1rem;
+            flex-grow: 1;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue-bg));
+            color: var(--white-color);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+        }
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01));
+            pointer-events: none;
+            z-index: 0;
+        }
+        .final-cta h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            font-weight: 900;
+        }
+        .final-cta p {
+            font-size: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+            color: var(--light-gray-text);
+        }
+        .final-cta .ballot-info {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary-gold);
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+            margin-bottom: 1rem;
+            animation: bounceIn 1s ease-out;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.1); opacity: 1; }
+            75% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        /* New section for alliance and final message */
+        .alliance-section, .final-message-section {
+            padding: 5rem 0;
+            background-color: var(--white-color);
+            text-align: center;
+        }
+        .alliance-box {
+            background: var(--light-bg);
+            border: 2px solid var(--secondary-gold);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: auto;
+            position: relative;
+        }
+        .alliance-box h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        .alliance-box p {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            line-height: 2;
+        }
+        .alliance-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        /* Image Slider for final section */
+        .image-slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            background-color: var(--dark-blue-bg);
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+        }
+        .image-slider {
+            display: flex;
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            padding: 0 20px;
+            gap: 20px;
+            scrollbar-width: none;
+        }
+        .image-slider::-webkit-scrollbar {
+            display: none;
+        }
+        .image-slider img {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .image-slider img:hover {
+            transform: scale(1.05);
+        }
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white-color);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+        .slider-arrow:hover {
+            background-color: var(--secondary-gold);
+        }
+        .slider-arrow.left {
+            right: 10px;
+        }
+        .slider-arrow.right {
+            left: 10px;
+        }
+        
+        .animated-arrow {
+            animation: pulse-arrow 2s infinite;
+        }
+        @keyframes pulse-arrow {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Offices Section */
+        .offices-section {
+            padding: 5rem 0;
+            background-color: var(--light-bg);
+        }
+        .offices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .office-card {
+            background: var(--white-color);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-right: 5px solid var(--secondary-gold);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .office-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .office-card h4 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .office-card h4 i {
+            margin-left: 10px;
+            color: var(--primary-blue);
+        }
+        .office-card p {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-blue-bg);
+            color: var(--white-color);
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 70px;
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary-gold);
+        }
+        .footer p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+        .social-links {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-links a {
+            color: var(--white-color);
+            font-size: 1.8rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .social-links a:hover {
+            color: var(--secondary-gold);
+            transform: scale(1.2);
+        }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .contact-info a {
+            color: var(--white-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .contact-info a:hover {
+            color: var(--secondary-gold);
+            transform: translateY(-3px);
+            text-shadow: 1px 1px 5px var(--secondary-gold);
+        }
+        .contact-info i {
+            margin-left: 10px;
+            font-size: 1.2rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            color: var(--dark-text);
+            padding: 2.5rem;
+            border-radius: 15px;
+            margin: 3rem auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--light-gray-text);
+        }
+        .highlight-box h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            color: var(--primary-blue);
+        }
+        .highlight-box p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        .highlight-box img {
+            border-radius: 10px;
+            margin-top: 2rem;
+            max-width: 100%;
+            width: auto;
+            height: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        /* New Inquiry Section Styles */
+        .inquiry-form-section {
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue-bg));
+            color: var(--white-color);
+            padding: 8rem 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        .inquiry-form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        .inquiry-content {
+            position: relative;
+            z-index: 2;
+        }
+        .inquiry-form-section .section-title h2 {
+            color: var(--white-color);
+        }
+        .inquiry-form-section .section-title p {
+            color: var(--light-gray-text);
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            max-width: 700px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 1s ease-out;
+        }
+        .form-container h2 {
+            font-size: 2.2rem;
+            color: var(--secondary-gold);
+            margin-bottom: 2rem;
+        }
+        .input-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--light-gray-text);
+            font-size: 1.2rem;
+        }
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 15px 50px 15px 15px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white-color);
+            direction: rtl;
+            transition: border-color 0.3s ease;
+        }
+        .form-container input:focus,
+        .form-container textarea:focus {
+            outline: none;
+            border-color: var(--secondary-gold);
+        }
+        .form-container input::placeholder, .form-container textarea::placeholder { 
+            color: var(--light-gray-text);
+            opacity: 0.8;
+        }
+        .form-container button {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            border: none;
+            background-color: var(--secondary-gold);
+            color: var(--primary-blue);
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .form-container button:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        .form-container button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: all 0.6s;
+        }
+        .form-container button:hover::before {
+            left: 100%;
+        }
+        .response-text {
+            margin-top: 20px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            transform: translateY(10px);
+            color: var(--success-green);
+        }
+        .response-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.6rem; }
+            .section-title h2 { font-size: 2.5rem; }
+            .bio-flex-container { flex-direction: column; text-align: center; }
+            .candidate-image-col { min-width: unset; order: 1; }
+            .candidate-text-col { min-width: unset; order: 2; text-align: center; }
+            .promises-grid, .social-grid, .offices-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+            .form-container { max-width: 90%; }
+            .image-slider img { width: 300px; height: 180px; }
+            .journey-item { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding: 5rem 0; }
+            .hero h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.2rem; }
+            .section-title h2 { font-size: 2rem; }
+            .candidate-photo-wrapper { width: 250px; height: 250px; }
+            .promises-grid, .social-grid, .offices-grid { grid-template-columns: 1fr; }
+            .promise-card { padding: 2rem; }
+            .cta-text p { font-size: 1.2rem; }
+            .form-container { padding: 25px; }
+            .form-container h2 { font-size: 1.8rem; }
+            .form-container input, .form-container textarea, .form-container button { padding: 12px; font-size: 1rem; }
+            .final-cta h2 { font-size: 2.5rem; }
+            .final-cta p { font-size: 1.2rem; }
+            .alliance-box h3 { font-size: 2rem; }
+            .image-slider img { width: 250px; height: 150px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 4rem 0; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .section-title h2 { font-size: 1.8rem; }
+            .candidate-photo-wrapper { width: 200px; height: 200px; }
+            .contact-info { flex-direction: column; gap: 1.5rem; }
+            .image-slider img { width: 200px; height: 120px; }
+        }
+        
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .contact-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed var(--light-gray-text);
+        }
+        .contact-details p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-details a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: inline-block;
+            margin-right: 1rem;
+        }
+        .contact-details a:hover {
+            color: var(--secondary-gold);
+        }
+
+        /* New button animation */
+        @keyframes pulse-button {
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 5px 20px rgba(0,0,0,0.4); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        }
+    </style>
+</head>
+<body>
+    <button class="nav-menu-btn" id="nav-toggle-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-menu" id="nav-menu">
+        <a href="#hero-section">الرئيسية</a>
+        <a href="#about-section">عن المرشح</a>
+        <a href="#journey-section">مسيرة العطاء</a>
+        <a href="#program-section">برنامجنا الانتخابي</a>
+        <a href="#alliance-section">تحالفنا</a>
+        <a href="#final-cta-section">القائمة ورقم المرشح</a>
+        <a href="#offices-section">المكاتب الخدمية</a>
+        <a href="#contact-section">اتصل بنا</a>
+    </div>
+
+    <header class="hero" id="hero-section">
+        <div class="hero-content">
+            <h1>من هو المرشح البرلماني والمهندس حيدر الاسدي</h1>
+            <p>كربلاء تستحق ألافضل</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="candidate-bio" id="about-section">
+            <div class="container">
+                <div class="section-title reveal">
+                    <h2>عن المرشح المهندس حيدر الأسدي</h2>
+                    <p>
+                        مرحباً بكم في الصفحة الرسمية لحملتي الانتخابية، حيث نفتح باب الأمل والتغيير معاً.
+                        أنا المهندس حيدر الأسدي، مرشحكم إلى مجلس النواب عن كربلاء المقدسة، أحمل معي مشروعاً واضحاً وصادقاً لخدمة المواطن، والدفاع عن حقوقكم، وبناء مستقبل أفضل للأجيال القادمة.
+                    </p>
+                </div>
+                <div class="bio-flex-container">
+                    <div class="candidate-image-col reveal">
+                        <div class="candidate-photo-wrapper">
+                            <img src="candidate.jpg" alt="صورة المرشح المهندس حيدر الأسدي" class="candidate-photo">
+                        </div>
+                    </div>
+                    <div class="candidate-text-col reveal">
+                        <h3>رجل منكم وإليكم</h3>
+                        <p>
+                            المهندس حيدر عبد صالح الأسدي (أبو سجاد) هو ابن كربلاء الأصيل من مواليد 1982، نشأ وترعرع في قضاء الحر. هو ليس مجرد مهندس أو رجل أعمال، بل هو إنسان حمل هموم مدينته وأهلها منذ شبابه، واختار أن يكون خادماً للناس قبل أن يكون صاحب منصب.
+                        </p>
+                        <div class="highlight-box reveal">
+                            <h3>تخرج بشهادة بكالوريوس في الهندسة ونجح في التجارة</h3>
+                            <p>نجح في ميدان التجارة كرئيس لمجموعة الأسدي التجارية. إنه يمتلك العقلية الإدارية التي تخدم مصالحكم، لكن قلبه ينبض بحب العطاء.</p>
+                            <img src="work.jpg" alt="المهندس حيدر الأسدي في عمله">
+                        </div>
+                        <div class="highlight-box reveal">
+                            <h3>الإنسانية هي أعظم تجارة</h3>
+                            <p>آمن أبو سجاد أن أعظم تجارة هي خدمة الإنسان. لذلك، أسس مؤسسة الإمام المهدي (عج) الخيرية المستقلة في كربلاء لتكون بيتاً للأيتام، وملاذاً للفقراء، وعوناً للمحرومين.  .</p>
+                            <img src="charity1.jpg" alt="المهندس حيدر الأسدي في عمل خيري">
+                            <img src="charity2.jpg" alt="صورة من أحد المشاريع الخيرية">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="journey-section" id="journey-section">
+            <div class="container">
+                <div class="section-title reveal">
+                    <h2>مسيرة عطاء حقيقية وليست وعوداً 🌟</h2>
+                </div>
+                <div class="journey-container">
+                    <div class="journey-item reveal">
+                        <i class="fas fa-handshake journey-icon"></i>
+                        <div class="journey-content">
+                            <h3>موكب بركات الحسين (ع)</h3>
+                            <p>منذ عام 2007، أسس موكب بركات الحسين (ع) ليخدم زوار سيد الشهداء بيديه. هذه الخدمة لم تكن مجرد واجب، بل هي عشقٌ تجسد في العطاء بلا حدود.</p>
+                            <img src="parade.jpg" alt="موكب بركات الحسين">
+                        </div>
+                    </div>
+                    <div class="journey-item reveal">
+                        <i class="fas fa-heart journey-icon"></i>
+                        <div class="journey-content">
+                            <h3>مؤسسة الإمام المهدي (عج) الخيرية</h3>
+                            <p>في 2012، أطلق مؤسسة الإمام المهدي (عج) الخيرية التي احتضنت الأيتام والفقراء. إنها قصة حب مع الإنسانية، حيث تحولت الأحلام إلى واقع ملموس لمئات العائلات.</p>
+                            <img src="charity3.jpg" alt="مؤسسة الإمام المهدي">
+                        </div>
+                    </div>
+                    <div class="journey-item reveal">
+                        <i class="fas fa-hands-helping journey-icon"></i>
+                        <div class="journey-content">
+                            <h3>إغاثة النازحين ودعم الحشد الشعبي</h3>
+                            <p>في 2014، كان في الصفوف الأولى لإغاثة النازحين، لأن الألم لا يعرف حدوداً. وفي معركة الوطن ضد داعش، لم يتأخر، بل قدّم الدعم اللوجستي للحشد الشعبي والقوات الأمنية حتى النصر، إيماناً منه بأن الوطن أغلى ما نملك.</p>
+                            <img src="aid.jpg" alt="إغاثة النازحين">
+                        </div>
+                    </div>
+                    <div class="journey-item reveal">
+                        <i class="fas fa-briefcase-medical journey-icon"></i>
+                        <div class="journey-content">
+                            <h3>جهود جائحة كورونا</h3>
+                            <p>في جائحة كورونا 2019، كان من أوائل المبادرين بالعلاج والإغاثة لكل أبناء المحافظة. كان في الميدان عندما كان الناس في أمس الحاجة إلى يد العون، لأن المبادرة لا تنتظر الإذن.</p>
+                            <img src="covid.jpg" alt="جهود جائحة كورونا">
+                        </div>
+                    </div>
+                    <div class="journey-item reveal">
+                        <i class="fas fa-building journey-icon"></i>
+                        <div class="journey-content">
+                            <h3>المجمع الخيري الثاني</h3>
+                            <p>واليوم، يواصل البناء عبر المجمع السكني الخيري الثاني للفقراء (22 دارًا + داران للمسنين) بنسبة إنجاز بلغت 80%. إنه إصرار على تحقيق العدالة الاجتماعية، ومواصلة لمسيرة العطاء التي لا تتوقف.</p>
+                            <img src="complex.jpg" alt="المجمع الخيري الثاني">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="promises-section" id="program-section">
+            <div class="container">
+                <div class="section-title reveal">
+                    <h2>برنامجنا الانتخابي: بناءٌ وعطاءٌ لا يتوقف 🛠️</h2>
+                    <p>
+                        برنامجي ليس مجرد وعود، بل هو خارطة طريق واضحة ومدروسة لتحقيق تغيير ملموس. ألتزم بالعمل على أرض الواقع لتحقيق الأهداف التالية:
+                    </p>
+                </div>
+                
+                <div class="promises-grid">
+                    <div class="promise-card reveal">
+                        <h3><i class="fas fa-handshake"></i> خدمة مباشرة للمواطنين</h3>
+                        <p>
+                            سأكون صوتكم في كل مكان، من خلال مكتب دائم لاستقبال شكاواكم والعمل على حلها بجدية. سأعمل على تسهيل الإجراءات الحكومية وتقديم الدعم لمن يحتاجه.
+                        </p>
+                    </div>
+                    
+                    <div class="promise-card reveal">
+                        <h3><i class="fas fa-gavel"></i> مكافحة الفساد والظلم</h3>
+                        <p>
+                            ستكون مهمتي الأولى هي محاربة الفساد بلا هوادة، من خلال تفعيل دوري الرقابي في البرلمان، واسترجاع الأموال المنهوبة، وحماية ثروات الشعب.
+                        </p>
+                    </div>
+                    
+                    <div class="promise-card reveal">
+                        <h3><i class="fas fa-users"></i> تمكين المجتمع وتعزيز الحقوق</h3>
+                        <p>
+                            أؤمن بأن قوة العراق تكمن في أبنائه. سأعمل على إشراك الشباب والنساء في عملية صناعة القرار، والدفاع عن حقوق المتقاعدين والموظفين والعمال.
+                        </p>
+                    </div>
+                    
+                    <div class="promise-card reveal">
+                        <h3><i class="fas fa-home"></i> تطوير البنى التحتية والخدمات</h3>
+                        <p>
+                            سأتابع شخصياً ملفات البنى التحتية الحيوية، من مشاريع المياه والكهرباء إلى صيانة الطرق وبناء المدارس والمستشفيات، لضمان جودة الخدمات.
+                        </p>
+                    </div>
+                    
+                    <div class="promise-card reveal">
+                        <h3><i class="fas fa-money-bill-wave"></i> دعم الاقتصاد المحلي</h3>
+                        <p>
+                            سأخصص جزءاً كبيراً من جهودي لدعم الاقتصاد المحلي، وتسهيل إجراءات تأسيس المشاريع الصغيرة،  
+                        </p>
+                    </div>
+                    
+                    <div class="promise-card reveal">
+                        <h3><i class="fas fa-shield-alt"></i> حماية الأمن والاستقرار</h3>
+                        <p>
+                            الأمن والاستقرار هما أساس كل تقدم. سأعمل مع زملائي على تشريع قوانين تعزز الأمن الداخلي وتحمي المواطن، وتوفر بيئة آمنة للعيش والاستثمار.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="alliance-section" id="alliance-section">
+            <div class="container">
+                <div class="section-title reveal">
+                    <h2>تحالفنا: الأساس العراقي 🇮🇶</h2>
+                </div>
+                <div class="alliance-box reveal">
+                    <h3>تحالف الأساس العراقي: قائمة ولدت من رحم الاستقلال والنزاهة ✨</h3>
+                    <p>
+                        قائمتنا ليست قائمة تقليدية، بل تحالف الأساس العراقي، قائمة ولدت من رحم الاستقلال والنزاهة. يترأسها الأستاذ <strong>محسن المندلاوي</strong> (نائب رئيس البرلمان الحالي)، متحالفاً مع منظمة العمل الإسلامي ورئيسها <strong>الشيخ حسن جاسم الأسدي</strong>، الشخصية الكربلائية المعتدلة والمعروفة بالدين.
+                    </p>
+                    <img src="alliance.jpg" alt="شعار تحالف الأساس العراقي">
+                    <div style="margin-top: 2rem;">
+                        <img src="alliance2.jpg" alt="صورة أخرى للتحالف" style="max-width: 50%; border-radius: 10px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="final-message-section">
+            <div class="container reveal">
+                <p class="emotional-text" style="font-size: 1.6rem; color: var(--primary-blue); font-weight: bold; line-height: 1.8;">
+                    "وفي الختام، نذكر ماضينا المشرف: زمنٌ وقفنا فيه دفاعاً عن الوطن والمذهب؛ كنا على أتمّ الاستعداد لأن نقدّم أرواحنا فداءً للوطن. ذلك التاريخ المكلّل بالتضحيات يعلّمنا أن الحزن على ما آل إليه العراق اليوم ليس ضعفاً بل وفاءً للذين ضحّوا، وأن قوّتنا ومصداقيتنا تظهر حين نترجم هذا الوفاء إلى عملٍ يُعيد لبلادنا عزّتها وكرامتها."
+                </p>
+                <div class="image-slider-container">
+                    <button class="slider-arrow left" id="slider-left"><i class="fas fa-chevron-right animated-arrow"></i></button>
+                    <div class="image-slider" id="image-slider">
+                        <img src="sacrifice1.jpg" alt="صورة من التضحيات">
+                        <img src="sacrifice2.jpg" alt="صورة من التضحيات">
+                        <img src="sacrifice3.jpg" alt="صورة من التضحيات">
+                        <img src="sacrifice4.jpg" alt="صورة من التضحيات">
+                        <img src="sacrifice5.jpg" alt="صورة من التضحيات">
+                        <img src="sacrifice6.jpg" alt="صورة من التضحيات">
+                        <img src="sacrifice7.jpg" alt="صورة من التضحيات">
+                        <img src="sacrifice8.jpg" alt="صورة من التضحيات">
+                    </div>
+                    <button class="slider-arrow right" id="slider-right"><i class="fas fa-chevron-left animated-arrow"></i></button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="final-cta" id="final-cta-section">
+            <div class="container reveal">
+                <h2>اجعل صوتك بداية الطريق... 🗳️</h2>
+                <p>
+                    هذه ليست حملة انتخابية عابرة، بل مشروع حياة لخدمة الإنسان. نحن لا نبحث عن سلطة، بل نبحث عن مستقبل أفضل لأبنائنا، عن عراقٍ جديد أساسه العدل والكرامة.
+                </p>
+                <img src="campaign.jpg" alt="صورة انتخابية للمرشح" style="max-width: 80%; border-radius: 15px; margin-top: 3rem; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <div style="margin-top: 2rem;">
+                    <p class="ballot-info">
+                         المهندس حيدر عبد صالح الأسدي 
+                    </p>
+                    <p class="ballot-info">
+                        رقم التسلسل 12 . رقم القائمة  244
+                    </p>
+                </div>
+                <p style="font-size: 2rem; font-weight: bold; margin-top: 1rem;">
+                     معاً… نبني عراقاً يستحقه شعبه 
+                </p>
+            </div>
+        </section>
+
+        <section class="offices-section" id="offices-section">
+            <div class="container">
+                <div class="section-title reveal">
+                    <h2>مكاتبكم الخدمية: بيوتكم المفتوحة 🏡</h2>
+                    <p>
+                        السلام عليكم ورحمة الله وبركاته. حياكم الله في مكاتبكم الخدمية المفتوحة طوال الأسبوع.
+                    </p>
+                </div>
+                <div class="offices-grid">
+                    <div class="office-card reveal">
+                        <h4><i class="fas fa-map-marker-alt"></i> المكتب الأول:</h4>
+                        <p><strong>📍 الموقع:</strong> كربلاء المقدسة طريق الحر - بالقرب من مأكولات ريحانه</p>
+                        <p><strong>🗓️ التواجد:</strong> تواجد  المهندس السبت والخميس عصرا..</p>
+                        <div class="contact-details">
+                            <p><strong>📞 للتواصل:</strong> 07711871359</p>
+                        </div>
+                    </div>
+                    <div class="office-card reveal">
+                        <h4><i class="fas fa-map-marker-alt"></i> المكتب الثاني:</h4>
+                        <p><strong>📍 الموقع:</strong> كربلاء المقدسة – طريق المستشفى التركي، قرب مديرية الدفاع المدني .موسسة الامام المهدي الخيرية</p>
+                        <p><strong>🗓️ التواجد:</strong> تواجد المهندس حيدر الاسدي  يوم الجمعه الساعة 5 عصرا إلى 8 مساءا ..</p>
+                        <div class="contact-details">
+                            <p><strong>📞 للتواصل:</strong>  07737187696</p>
+                        </div>
+                    </div>
+                    <div class="office-card reveal">
+                        <h4><i class="fas fa-map-marker-alt"></i> المكتب الثالث:</h4>
+                        <p><strong>📍 الموقع:</strong> حي العسكري العابد ركن السوق</p>
+                        <p><strong>🗓️ التواجد:</strong> يوم الأحد عصراً.</p>
+                        <div class="contact-details">
+                            <p><strong>📞 للتواصل:</strong>  07737187696</p>
+                        </div>
+                    </div>
+                    <div class="office-card reveal">
+                        <h4><i class="fas fa-map-marker-alt"></i> المكتب الرابع:</h4>
+                        <p><strong>📍 الموقع:</strong> حي العامل مقابل جامع الـ شبل</p>
+                        <p><strong>🗓️ التواجد:</strong> يوم الاثنين عصراً.</p>
+                        <div class="contact-details">
+                            <p><strong>📞 للتواصل:</strong>  07737187696</p>
+                        </div>
+                    </div>
+                    <div class="office-card reveal">
+                        <h4><i class="fas fa-map-marker-alt"></i> المكتب الخامس:</h4>
+                        <p><strong>📍 الموقع:</strong> قضاء عين التمر</p>
+                        <p><strong>🗓️ التواجد:</strong> يوم الثلاثاء عصراً.</p>
+                        <div class="contact-details">
+                            <p><strong>📞 للتواصل:</strong>  07737187696</p>
+                        </div>
+                    </div>
+                    <div class="office-card reveal">
+                        <h4><i class="fas fa-map-marker-alt"></i> المكتب السادس:</h4>
+                        <p><strong>📍 الموقع:</strong> البوبيات مقابل مكتب عقار اليساري</p>
+                        <p><strong>🗓️ التواجد:</strong> يوم الأربعاء عصراً.</p>
+                        <div class="contact-details">
+                            <p><strong>📞 للتواصل:</strong>  07737187696</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="inquiry-form-section" id="contact-section">
+            <div class="inquiry-content container reveal">
+                <div class="section-title">
+                    <h2>للتواصل وتقديم الاستفسارات 📞</h2>
+                    <p>املأ النموذج أدناه وسيقوم فريقنا بالرد عليك قريباً جداً.</p>
+                </div>
+                <div class="form-container">
+                    <h2>اترك استفسارك</h2>
+                    <form id="inquiryForm">
+                        <div class="input-group">
+                            <input type="text" id="name" placeholder="الاسم الكامل" required>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" id="phone" placeholder="رقم الهاتف" required>
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="subject" placeholder="عنوان الاستفسار" required>
+                            <i class="fas fa-pen"></i>
+                        </div>
+                        <div class="input-group">
+                            <textarea id="details" placeholder="اكتب التفاصيل هنا..." rows="5" required></textarea>
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <button type="submit" id="submitBtn">إرسال</button>
+                    </form>
+                    <p id="response" class="response-text"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 الموقع الرسمي للمرشح المهندس حيدر الأسدي. جميع الحقوق محفوظة.</p>
+            <div class="social-links">
+                <a href="tel:+9647826666483" target="_blank" title="اتصال فوري"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://wa.me/9647826666483" target="_blank" title="واتساب"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/share/1HCw4kzgZY/" target="_blank" title="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/haiderlasdy?igsh=aDBzYmp0dWp0cjd4" target="_blank" title="انستغرام"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/your-profile" target="_blank" title="تويتر"><i class="fab fa-x-twitter"></i></a>
+                <a href="https://www.tiktok.com/@qi_0o?_t=ZS-90GxMpmwQaY&_r=1" target="_blank" title="تيك توك"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Intersection Observer for animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.2
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, observerOptions);
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // Form submission logic
+            const form = document.getElementById('inquiryForm');
+            const responseEl = document.getElementById('response');
+            
+            if (form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+                    
+                    const name = document.getElementById('name').value;
+                    const phone = document.getElementById('phone').value;
+                    const subject = document.getElementById('subject').value;
+                    const details = document.getElementById('details').value;
+
+                    const BOT_TOKEN = '8214786867:AAHsLBghSsF2le7Tx_rsLQd6GaXFWVgs_GA';
+                    const CHAT_ID = '7836619198';
+
+                    const message = `
+                        <b>استفسار جديد من الموقع الإلكتروني:</b>
+                        -------------------------
+                        <b>الاسم:</b> ${name}
+                        <b>رقم الهاتف:</b> ${phone}
+                        <b>عنوان الاستفسار:</b> ${subject}
+                        <b>التفاصيل:</b>
+                        ${details}
+                    `;
+
+                    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+                    const params = {
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    };
+
+                    try {
+                        const response = await fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(params)
+                        });
+
+                        if (response.ok) {
+                            responseEl.innerText = "✅ تم استلام استفسارك بنجاح! سنتواصل معك قريباً.";
+                            responseEl.style.color = "var(--success-green)";
+                            responseEl.classList.add('show');
+                            form.reset();
+                            setTimeout(() => {
+                                responseEl.classList.remove('show');
+                            }, 5000);
+                        } else {
+                            throw new Error('فشل في إرسال الرسالة إلى تيليجرام.');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        responseEl.innerText = "❌ حدث خطأ ما. يرجى المحاولة لاحقاً.";
+                        responseEl.style.color = "var(--error-red)";
+                        responseEl.classList.add('show');
+                        setTimeout(() => {
+                            responseEl.classList.remove('show');
+                        }, 5000);
+                    }
+                });
+            }
+
+            // Image Slider Logic
+            const slider = document.getElementById('image-slider');
+            const leftArrow = document.getElementById('slider-left');
+            const rightArrow = document.getElementById('slider-right');
+
+            leftArrow.addEventListener('click', () => {
+                slider.scrollBy({ left: -420, behavior: 'smooth' });
+            });
+
+            rightArrow.addEventListener('click', () => {
+                slider.scrollBy({ left: 420, behavior: 'smooth' });
+            });
+
+            // Navigation Menu Logic
+            const navToggleBtn = document.getElementById('nav-toggle-btn');
+            const navMenu = document.getElementById('nav-menu');
+            const navLinks = navMenu.querySelectorAll('a');
+
+            navToggleBtn.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
